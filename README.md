@@ -20,6 +20,10 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## Testing
+
+    $ rspec
+
 ## Contributing
 
 1. Fork it
