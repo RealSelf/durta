@@ -64,6 +64,39 @@ describe Durta::Metric do
       avg = (1 + 80000) / 2
       @metric.average(120).should eql avg
     end
+
+    it 'returns 0 when no records exist' do
+      @metric.average.should eql 0
+    end
+
+    it 'returns 0 when sum of all values is 0' do
+      @metric.record(0)
+      @metric.record(0)
+      @metric.record(0)
+      @metric.record(0)
+
+      @metric.average.should eql 0
+    end
+  end
+
+  describe '#count' do
+    it 'returns the count of records recorded within the default time period' do
+      @metric.record(920)
+      @metric.record(0.00)
+      @metric.record(55)
+      @metric.record(9002.82393)
+
+      @metric.count.should eql 4
+    end
+
+    it 'returns the count of records recorded within the last X seconds' do
+      @metric.record(920, Time.now - 100)
+      @metric.record(0.00, Time.now - 15)
+      @metric.record(55, Time.now - 60000)
+      @metric.record(9002.82393)
+
+      @metric.count(99).should eql 2
+    end
   end
 
 end

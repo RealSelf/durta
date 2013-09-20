@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Durta::VERSION
   spec.authors       = ["Sam Leavens"]
   spec.email         = ["sam@realself.com"]
-  spec.description   = %q{Simple library for recording and reporting metrics}
-  spec.summary       = %q{Simple library for recording and reporting metrics}
+  spec.description   = %q{Simple gem for recording and reporting metrics}
+  spec.summary       = %q{Simple gem for recording and reporting metrics}
   spec.homepage      = ""
   spec.license       = "MIT"
 

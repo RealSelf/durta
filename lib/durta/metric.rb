@@ -23,7 +23,16 @@ module Durta
 
     def average(seconds = DEFAULT_PERIOD)
       records = records_newer_than(Time.now - seconds)
-      total(seconds) / records.count
+      begin
+        total(seconds) / records.count
+      rescue ZeroDivisionError
+        0
+      end
+    end
+
+    def count(seconds = DEFAULT_PERIOD)
+      records = records_newer_than(Time.now - seconds)
+      records.count
     end
 
     def records_newer_than(time)
@@ -31,6 +40,8 @@ module Durta
         record[:time] < time
       end
     end
+
+    alias_method :avg, :average
   end
 
 end
