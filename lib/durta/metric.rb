@@ -23,11 +23,12 @@ module Durta
 
     def average(seconds = DEFAULT_PERIOD)
       records = records_newer_than(Time.now - seconds)
-      begin
-        total(seconds) / records.count
-      rescue ZeroDivisionError
-        0
+      if records.count == 0
+        avg = 0
+      else
+        avg = total(seconds) / records.count
       end
+      avg
     end
 
     def count(seconds = DEFAULT_PERIOD)
