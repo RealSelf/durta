@@ -6,15 +6,11 @@ Simple gem for recording and reporting on metrics.
 
 Add this line to your application's Gemfile:
 
-    gem 'durta'
+    gem 'durta', :git => 'ssh://git@github.com/RealSelf/durta.git'
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install durta
 
 ## Usage
 
